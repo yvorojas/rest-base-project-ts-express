@@ -1,6 +1,6 @@
-import {Router} from 'express'
-import swaggerUi  from 'swagger-ui-express';
-import YAML  from 'yamljs';
+import { Router } from 'express';
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 
 const router = Router();
 
@@ -10,4 +10,3 @@ router.use('/api-explorer', swaggerUi.serve);
 router.get('/api-explorer', swaggerUi.setup(swaggerDocument));
 
 export default router;
-

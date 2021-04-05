@@ -5,7 +5,6 @@ import errorHandler from './infrastructure/middlewares/errorHandler';
 
 const port = parseInt(process.env.PORT);
 
-console.log(errorHandler);
 export default new Server()
   .registerRoutes(routes)
   .registerMiddleware(errorHandler)
