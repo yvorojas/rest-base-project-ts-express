@@ -4,6 +4,7 @@
   "description": "ripley-app",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install",
     "start": "NODE_ENV=production node dist/index.js",
     "compile": "ts-node build.ts && tsc",
     "dev": "NODE_ENV=dev nodemon src/index.ts | pino-pretty",
