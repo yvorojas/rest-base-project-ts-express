@@ -7,8 +7,11 @@ import os from 'os';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import l from './common/logger';
+import connectDB from './config/database';
 
 const app = express();
+
+connectDB();
 
 export default class ExpressServer {
   constructor() {
