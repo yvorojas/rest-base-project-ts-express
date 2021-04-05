@@ -64,5 +64,10 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "husky":{
+    "hooks":{
+      "pre-commit": "npm run test"
+    }
   }
 }
