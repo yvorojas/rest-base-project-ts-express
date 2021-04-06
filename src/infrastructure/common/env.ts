@@ -8,4 +8,4 @@ if (result.error) {
   throw result.error;
 }
 
-console.log(result.parsed)
+console.log(result.parsed);

@@ -1,5 +1,5 @@
-import User from '../entities/User'
+import User from '../entities/User';
 
 export default class GetInfoUseCase {
-    static execute = () => new User('Yvo', 'Rojas').getFullName()
+  static execute = () => new User('Yvo', 'Rojas').getFullName();
 }

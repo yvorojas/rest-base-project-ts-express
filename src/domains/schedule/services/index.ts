@@ -1,5 +1,5 @@
-import CreateUseCase from "./create";
+import CreateUseCase from './create';
 
 export default {
-    create: CreateUseCase.execute
-}
+  create: CreateUseCase.execute,
+};
