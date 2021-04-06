@@ -7,6 +7,8 @@
     "prepare": "husky install",
     "start": "NODE_ENV=production node dist/src/index.js",
     "compile": "ts-node build.ts && tsc",
+    "docker:build": "docker build -t base-project .",
+    "docker:run": "docker run --rm -it -p 3000:3000 base-project",
     "dev": "NODE_ENV=dev nodemon src/index.ts | pino-pretty",
     "dev:debug": "nodemon --exec 'node -r ts-node/register --inspect-brk' server/index.ts | pino-pretty",
     "lint": "tsc --noEmit && eslint -c .eslintrc.js '{src, test}/*.{js,ts,tsx}' --quiet",
