@@ -13,7 +13,10 @@
     "dev:debug": "nodemon --exec 'node -r ts-node/register --inspect-brk' server/index.ts | pino-pretty",
     "lint": "tsc --noEmit && eslint -c .eslintrc.js '{src, test}/*.{js,ts,tsx}' --quiet",
     "lint:fix": "tsc --noEmit && eslint -c .eslintrc.js '{src, test}/*.{js,ts,tsx}' --quiet --fix",
-    "test": "jest"
+    "test": "jest",
+    "test:unit": "npm test -- --testPathPattern=unit\\.*$",
+    "coverage": "npm run test:unit -- --coverage --watchAll=false",
+    "test:integration": "npm test -- --testPathPattern=integration\\.*$"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -57,16 +60,24 @@
       "json",
       "ts"
     ],
-    "rootDir": "test",
     "testRegex": ".*\\.test\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "integration/**/*.(t|j)s",
-      "unit/**/*.(t|j)s"
+      "src/**/*.ts",
+      "!src/infrastructure/*.ts",
+      "!src/infrastructure/**/*.ts"
     ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "coverageDirectory": "coverage",
+    "testEnvironment": "node",
+    "coverageThreshold": {
+      "global": {
+        "branches": 5,
+        "functions": 5,
+        "lines": 5,
+        "statements": 5
+      }
+    }
   }
 }

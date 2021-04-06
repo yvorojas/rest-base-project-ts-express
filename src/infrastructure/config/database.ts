@@ -1,8 +1,8 @@
-import { ConnectionOptions, connect } from "mongoose";
+import { ConnectionOptions, connect } from 'mongoose';
 
 const connectDB = async () => {
   try {
-    const mongoURI: string = "mongodb://127.0.0.1:27017/bd"
+    const mongoURI = 'mongodb://127.0.0.1:27017/bd';
     const options: ConnectionOptions = {
       useNewUrlParser: true,
       useCreateIndex: true,
@@ -10,7 +10,7 @@ const connectDB = async () => {
       useUnifiedTopology: true,
     };
     await connect(mongoURI, options);
-    console.log("MongoDB Connected...");
+    console.log('MongoDB Connected...');
   } catch (err) {
     console.error(err.message);
     // Exit process with failure
