@@ -17,8 +17,8 @@
     "test:unit": "npm test -- --testPathPattern=unit\\.*$",
     "coverage": "npm run test:unit -- --coverage --watchAll=false",
     "test:integration": "npm test -- --testPathPattern=integration\\.*$",
-    "prettier:format": "prettier --write '**/*.ts' '**/*.json' '**/*.js' '**/*.yml' '**/*.yaml'",
-    "prettier:check": "prettier --check '**/*.ts' '**/*.json' '**/*.js' '**/*.yml' '**/*.yaml'"
+    "prettier:format": "prettier --write '**/*.{js,ts,json,yml,yaml}'",
+    "prettier:check": "prettier --check '**/*.{js,ts,json,yml,yaml}'"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

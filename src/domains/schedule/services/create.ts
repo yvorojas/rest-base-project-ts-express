@@ -3,7 +3,7 @@ import { Request } from 'express';
 
 export default class CreateUseCase {
   static execute = async (request: Request) => {
-    var productsList = [];
+    const productsList = [];
 
     request.body.products.forEach(function(value) {
       const products = {
