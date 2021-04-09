@@ -1,6 +1,4 @@
 {
-  "include": [
-    "**/*.ts"
-  ],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules", ".nyc_output", "build.ts"]
 }

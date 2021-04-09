@@ -1,327 +1,327 @@
 openapi: 3.0.3
 info:
   title: Promise-engine
-  version: "1.0"
+  version: '1.0'
   description: Service to get schedules from differents sources
 servers:
-  - url: "/api/v1"
+  - url: '/api/v1'
 paths:
   /schedule:
     post:
       tags:
-        - "Schedule"
+        - 'Schedule'
       summary: get unified schedule
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PromiseRequest"
+              $ref: '#/components/schemas/PromiseRequest'
             examples:
               Ripley Source:
                 value:
                   products:
                     [
                       {
-                        "sku": "2032223370002",
-                        "offerId": "123456",
-                        "quantity": 1,
-                        "deliveryMethods": ["DP"],
-                        "sellerId": "1",
+                        'sku': '2032223370002',
+                        'offerId': '123456',
+                        'quantity': 1,
+                        'deliveryMethods': ['DP'],
+                        'sellerId': '1',
                       },
                     ]
-                  country: "CL"
-                  region: "13"
-                  localityCode: "13101"
+                  country: 'CL'
+                  region: '13'
+                  localityCode: '13101'
               Marketplace Source:
                 value:
                   products:
                     [
                       {
-                        "sku": null,
-                        "offerId": "123456",
-                        "quantity": 1,
-                        "deliveryMethods": ["DP"],
-                        "sellerId": "123123",
+                        'sku': null,
+                        'offerId': '123456',
+                        'quantity': 1,
+                        'deliveryMethods': ['DP'],
+                        'sellerId': '123123',
                       },
                     ]
-                  country: "CL"
-                  region: "13"
-                  localityCode: "13101"
+                  country: 'CL'
+                  region: '13'
+                  localityCode: '13101'
       responses:
-        "200":
+        '200':
           description: Success response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PromiseResponse"
+                $ref: '#/components/schemas/PromiseResponse'
               examples:
                 Matrix:
                   value:
-                    responseId: "0644c09e-b2cf-408e-b76a-8a90c4ab297a"
+                    responseId: '0644c09e-b2cf-408e-b76a-8a90c4ab297a'
                     matrix:
                       [
                         {
-                          "consolidationDeliveryMethods": "DP",
-                          "consolidationPickupStoreCode": null,
-                          "products":
+                          'consolidationDeliveryMethods': 'DP',
+                          'consolidationPickupStoreCode': null,
+                          'products':
                             [
                               {
-                                "sku": "2032223370002",
-                                "offerId": null,
-                                "requiredQuantity": 1,
-                                "availableQuantity": null,
-                                "deliveryMethods":
+                                'sku': '2032223370002',
+                                'offerId': null,
+                                'requiredQuantity': 1,
+                                'availableQuantity': null,
+                                'deliveryMethods':
                                   [
                                     {
-                                      "deliveryMethod": "DP",
-                                      "deliveryMethodDescription": "Despacho Programado",
-                                      "typeOfService": "AM",
-                                      "typeOfServiceDescription": "9:00 a 14:00 hrs.",
-                                      "date": "03-22-2021",
-                                      "currency": "CLP",
-                                      "price": "2990",
-                                      "skuPrice": 1234567890124,
-                                      "skuPriceQuantity": 1,
-                                      "warehouse": "10095",
-                                      "courrier": "1082",
-                                      "coordinateId": "604fbe22d231e5001a2797aa",
-                                      "fulfillmentId": "604fbe22d231e5001a2797ab",
+                                      'deliveryMethod': 'DP',
+                                      'deliveryMethodDescription': 'Despacho Programado',
+                                      'typeOfService': 'AM',
+                                      'typeOfServiceDescription': '9:00 a 14:00 hrs.',
+                                      'date': '03-22-2021',
+                                      'currency': 'CLP',
+                                      'price': '2990',
+                                      'skuPrice': 1234567890124,
+                                      'skuPriceQuantity': 1,
+                                      'warehouse': '10095',
+                                      'courrier': '1082',
+                                      'coordinateId': '604fbe22d231e5001a2797aa',
+                                      'fulfillmentId': '604fbe22d231e5001a2797ab',
                                     },
                                   ],
                               },
                             ],
-                          "id": "604fbe22d231e5001a2797c0",
-                          "source": "MATRIX",
+                          'id': '604fbe22d231e5001a2797c0',
+                          'source': 'MATRIX',
                         },
                       ]
                 BigTicket:
                   value:
-                    responseId: "2abb2699-fc25-4d21-8aed-3cc150b779b4"
+                    responseId: '2abb2699-fc25-4d21-8aed-3cc150b779b4'
                     matrix:
                       [
                         {
-                          "consolidationDeliveryMethods": "DP",
-                          "consolidationPickupStoreCode": null,
-                          "products":
+                          'consolidationDeliveryMethods': 'DP',
+                          'consolidationPickupStoreCode': null,
+                          'products':
                             [
                               {
-                                "sku": "2032223370003",
-                                "offerId": null,
-                                "requiredQuantity": 1,
-                                "availableQuantity": null,
-                                "deliveryMethods":
+                                'sku': '2032223370003',
+                                'offerId': null,
+                                'requiredQuantity': 1,
+                                'availableQuantity': null,
+                                'deliveryMethods':
                                   [
                                     {
-                                      "deliveryMethod": "DP",
-                                      "deliveryMethodDescription": "Despacho Programado",
-                                      "typeOfService": "AM",
-                                      "typeOfServiceDescription": "9:00 a 14:00 hrs.",
-                                      "date": "03-22-2021",
-                                      "currency": "CLP",
-                                      "price": "2990",
-                                      "skuPrice": 1234567890124,
-                                      "skuPriceQuantity": 1,
-                                      "warehouse": "10095",
-                                      "courrier": "1082",
-                                      "coordinateId": null,
-                                      "fulfillmentId": null,
+                                      'deliveryMethod': 'DP',
+                                      'deliveryMethodDescription': 'Despacho Programado',
+                                      'typeOfService': 'AM',
+                                      'typeOfServiceDescription': '9:00 a 14:00 hrs.',
+                                      'date': '03-22-2021',
+                                      'currency': 'CLP',
+                                      'price': '2990',
+                                      'skuPrice': 1234567890124,
+                                      'skuPriceQuantity': 1,
+                                      'warehouse': '10095',
+                                      'courrier': '1082',
+                                      'coordinateId': null,
+                                      'fulfillmentId': null,
                                     },
                                   ],
                               },
                             ],
-                          "id": "604fbe22d231e5001a2797c1",
-                          "source": "BIGTICKET",
+                          'id': '604fbe22d231e5001a2797c1',
+                          'source': 'BIGTICKET',
                         },
                       ]
                 Mirakl:
                   value:
-                    responseId: "db11db4d-37ab-49db-909a-dbf66b04754d"
+                    responseId: 'db11db4d-37ab-49db-909a-dbf66b04754d'
                     matrix:
                       [
                         {
-                          "consolidationDeliveryMethods": "RD",
-                          "consolidationPickupStoreCode": null,
-                          "products":
+                          'consolidationDeliveryMethods': 'RD',
+                          'consolidationPickupStoreCode': null,
+                          'products':
                             [
                               {
-                                "sku": "123456",
-                                "offerId": "123456",
-                                "requiredQuantity": 1,
-                                "availableQuantity": null,
-                                "deliveryMethods":
+                                'sku': '123456',
+                                'offerId': '123456',
+                                'requiredQuantity': 1,
+                                'availableQuantity': null,
+                                'deliveryMethods':
                                   [
                                     {
-                                      "deliveryMethod": "RD",
-                                      "deliveryMethodDescription": "Rango de días",
-                                      "typeOfService": "RD",
-                                      "typeOfServiceDescription": "Rango de días",
-                                      "dateFrom": "03-22-2021",
-                                      "dateTo": "03-27-2021",
-                                      "currency": "CLP",
-                                      "price": "2990",
-                                      "skuPrice": null,
-                                      "skuPriceQuantity": null,
-                                      "warehouse": "seller_name",
-                                      "courrier": "seller_name",
-                                      "coordinateId": null,
-                                      "fulfillmentId": null,
+                                      'deliveryMethod': 'RD',
+                                      'deliveryMethodDescription': 'Rango de días',
+                                      'typeOfService': 'RD',
+                                      'typeOfServiceDescription': 'Rango de días',
+                                      'dateFrom': '03-22-2021',
+                                      'dateTo': '03-27-2021',
+                                      'currency': 'CLP',
+                                      'price': '2990',
+                                      'skuPrice': null,
+                                      'skuPriceQuantity': null,
+                                      'warehouse': 'seller_name',
+                                      'courrier': 'seller_name',
+                                      'coordinateId': null,
+                                      'fulfillmentId': null,
                                     },
                                   ],
                               },
                             ],
-                          "id": "604fbe22d231e5001a2797c2",
-                          "source": "MIRAKL",
+                          'id': '604fbe22d231e5001a2797c2',
+                          'source': 'MIRAKL',
                         },
                       ]
                 With Differents Delivery Methods:
                   value:
-                    responseId: "2abb2699-fc25-4d21-8aed-3cc150b779b4"
+                    responseId: '2abb2699-fc25-4d21-8aed-3cc150b779b4'
                     matrix:
                       [
                         {
-                          "consolidationDeliveryMethods": "DP",
-                          "consolidationPickupStoreCode": null,
-                          "products":
+                          'consolidationDeliveryMethods': 'DP',
+                          'consolidationPickupStoreCode': null,
+                          'products':
                             [
                               {
-                                "sku": "123456",
-                                "offerId": "123456",
-                                "requiredQuantity": 1,
-                                "availableQuantity": null,
-                                "deliveryDetails":
+                                'sku': '123456',
+                                'offerId': '123456',
+                                'requiredQuantity': 1,
+                                'availableQuantity': null,
+                                'deliveryDetails':
                                   [
                                     {
-                                      "deliveryMethod": "DP",
-                                      "deliveryMethodDescription": "Despacho Programado",
-                                      "typeOfService": "AM",
-                                      "typeOfServiceDescription": "9:00 a 14::00 hrs.",
-                                      "date": "03-22-2021",
-                                      "currency": "CLP",
-                                      "price": "2990",
-                                      "skuPrice": 1234567890124,
-                                      "skuPriceQuantity": 1,
-                                      "warehouse": "10095",
-                                      "courrier": "1082",
-                                      "coordinateId": "604fbe22d231e5001a2797ac",
-                                      "fulfillmentId": "604fbe22d231e5001a2797a",
+                                      'deliveryMethod': 'DP',
+                                      'deliveryMethodDescription': 'Despacho Programado',
+                                      'typeOfService': 'AM',
+                                      'typeOfServiceDescription': '9:00 a 14::00 hrs.',
+                                      'date': '03-22-2021',
+                                      'currency': 'CLP',
+                                      'price': '2990',
+                                      'skuPrice': 1234567890124,
+                                      'skuPriceQuantity': 1,
+                                      'warehouse': '10095',
+                                      'courrier': '1082',
+                                      'coordinateId': '604fbe22d231e5001a2797ac',
+                                      'fulfillmentId': '604fbe22d231e5001a2797a',
                                     },
                                     {
-                                      "deliveryMethod": "DP",
-                                      "deliveryMethodDescription": "Despacho Programado",
-                                      "typeOfService": "AM",
-                                      "typeOfServiceDescription": "9:00 a 14::00 hrs.",
-                                      "date": "03-23-2021",
-                                      "currency": "CLP",
-                                      "price": "2990",
-                                      "skuPrice": 1234567890124,
-                                      "skuPriceQuantity": 1,
-                                      "warehouse": "10095",
-                                      "courrier": "1082",
-                                      "coordinateId": "604fbe22d231e5001a2797ad",
-                                      "fulfillmentId": "604fbe22d231e5001a2797e",
+                                      'deliveryMethod': 'DP',
+                                      'deliveryMethodDescription': 'Despacho Programado',
+                                      'typeOfService': 'AM',
+                                      'typeOfServiceDescription': '9:00 a 14::00 hrs.',
+                                      'date': '03-23-2021',
+                                      'currency': 'CLP',
+                                      'price': '2990',
+                                      'skuPrice': 1234567890124,
+                                      'skuPriceQuantity': 1,
+                                      'warehouse': '10095',
+                                      'courrier': '1082',
+                                      'coordinateId': '604fbe22d231e5001a2797ad',
+                                      'fulfillmentId': '604fbe22d231e5001a2797e',
                                     },
                                   ],
-                                "othersDeliveryMethods":
+                                'othersDeliveryMethods':
                                   [
                                     {
-                                      "deliveryMethod": "RT",
-                                      "deliveryMethodDescription": "Retiro en tienda",
+                                      'deliveryMethod': 'RT',
+                                      'deliveryMethodDescription': 'Retiro en tienda',
                                     },
                                     {
-                                      "deliveryMethod": "DE",
-                                      "deliveryMethodDescription": "Despacho express",
+                                      'deliveryMethod': 'DE',
+                                      'deliveryMethodDescription': 'Despacho express',
                                     },
                                   ],
                               },
                               {
-                                "sku": "654321",
-                                "offerId": "123456",
-                                "requiredQuantity": 1,
-                                "availableQuantity": null,
-                                "deliveryDetails":
+                                'sku': '654321',
+                                'offerId': '123456',
+                                'requiredQuantity': 1,
+                                'availableQuantity': null,
+                                'deliveryDetails':
                                   [
                                     {
-                                      "deliveryMethod": "DP",
-                                      "deliveryMethodDescription": "Despacho Programado",
-                                      "typeOfService": "AM",
-                                      "typeOfServiceDescription": "9:00 a 14::00 hrs.",
-                                      "date": "03-22-2021",
-                                      "currency": "CLP",
-                                      "price": "2990",
-                                      "skuPrice": 1234567890124,
-                                      "skuPriceQuantity": 1,
-                                      "warehouse": "10095",
-                                      "courrier": "1082",
-                                      "coordinateId": "604fbe22d231e5001a2797af",
-                                      "fulfillmentId": "604fbe22d231e5001a2797g",
+                                      'deliveryMethod': 'DP',
+                                      'deliveryMethodDescription': 'Despacho Programado',
+                                      'typeOfService': 'AM',
+                                      'typeOfServiceDescription': '9:00 a 14::00 hrs.',
+                                      'date': '03-22-2021',
+                                      'currency': 'CLP',
+                                      'price': '2990',
+                                      'skuPrice': 1234567890124,
+                                      'skuPriceQuantity': 1,
+                                      'warehouse': '10095',
+                                      'courrier': '1082',
+                                      'coordinateId': '604fbe22d231e5001a2797af',
+                                      'fulfillmentId': '604fbe22d231e5001a2797g',
                                     },
                                     {
-                                      "deliveryMethod": "DP",
-                                      "deliveryMethodDescription": "Despacho Programado",
-                                      "typeOfService": "AM",
-                                      "typeOfServiceDescription": "9:00 a 14::00 hrs.",
-                                      "date": "03-23-2021",
-                                      "currency": "CLP",
-                                      "price": "2990",
-                                      "skuPrice": 1234567890124,
-                                      "skuPriceQuantity": 1,
-                                      "warehouse": "10095",
-                                      "courrier": "1082",
-                                      "coordinateId": "604fbe22d231e5001a2797ah",
-                                      "fulfillmentId": "604fbe22d231e5001a2797i",
+                                      'deliveryMethod': 'DP',
+                                      'deliveryMethodDescription': 'Despacho Programado',
+                                      'typeOfService': 'AM',
+                                      'typeOfServiceDescription': '9:00 a 14::00 hrs.',
+                                      'date': '03-23-2021',
+                                      'currency': 'CLP',
+                                      'price': '2990',
+                                      'skuPrice': 1234567890124,
+                                      'skuPriceQuantity': 1,
+                                      'warehouse': '10095',
+                                      'courrier': '1082',
+                                      'coordinateId': '604fbe22d231e5001a2797ah',
+                                      'fulfillmentId': '604fbe22d231e5001a2797i',
                                     },
                                   ],
-                                "othersDeliveryMethods":
+                                'othersDeliveryMethods':
                                   [
                                     {
-                                      "deliveryMethod": "DE",
-                                      "deliveryMethodDescription": "Despacho express",
+                                      'deliveryMethod': 'DE',
+                                      'deliveryMethodDescription': 'Despacho express',
                                     },
                                   ],
                               },
                             ],
-                          "id": "604fbe22d231e5001a2797c2",
-                          "source": "MATRIX",
+                          'id': '604fbe22d231e5001a2797c2',
+                          'source': 'MATRIX',
                         },
                       ]
 
-        "404":
-          description: "route not found"
+        '404':
+          description: 'route not found'
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
               examples:
                 Without Route in Matrix:
                   value:
                     {
-                      "message": "error_message",
-                      "code": 404,
-                      "internalCode": "ROUTE_NOT_FOUND",
-                      "details":
+                      'message': 'error_message',
+                      'code': 404,
+                      'internalCode': 'ROUTE_NOT_FOUND',
+                      'details':
                         [
                           {
-                            "sku": "12312312313",
-                            "deliveryMethod": "DP",
-                            "error": "internal error message",
-                            "source": "MATRIX",
+                            'sku': '12312312313',
+                            'deliveryMethod': 'DP',
+                            'error': 'internal error message',
+                            'source': 'MATRIX',
                           },
                         ],
                     }
                 Without Route in Mirakl:
                   value:
                     {
-                      "message": "error_message",
-                      "code": 404,
-                      "internalCode": "ROUTE_NOT_FOUND",
-                      "details":
+                      'message': 'error_message',
+                      'code': 404,
+                      'internalCode': 'ROUTE_NOT_FOUND',
+                      'details':
                         [
                           {
-                            "offerId": "123123",
-                            "deliveryMethod": "DP",
-                            "error": "internal error message",
-                            "source": "MIRAKL",
+                            'offerId': '123123',
+                            'deliveryMethod': 'DP',
+                            'error': 'internal error message',
+                            'source': 'MIRAKL',
                           },
                         ],
                     }
@@ -335,7 +335,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ReservationRequest"
+              $ref: '#/components/schemas/ReservationRequest'
             example: |-
               {
                 "responseId": "5f738833d3e15552c8a453fe",
@@ -350,29 +350,29 @@ paths:
                 }]
               }
       responses:
-        "200":
+        '200':
           description: OK Response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ReservationConfirmationResponse"
-              example: { "isReserved": true }
-        "400":
+                $ref: '#/components/schemas/ReservationConfirmationResponse'
+              example: { 'isReserved': true }
+        '400':
           description: Error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
               example:
                 {
-                  "message": "reservation process failed",
-                  "code": 400,
-                  "internalCode": "RESERVATION_CONFIRMATION_FAILED",
-                  "details":
+                  'message': 'reservation process failed',
+                  'code': 400,
+                  'internalCode': 'RESERVATION_CONFIRMATION_FAILED',
+                  'details':
                     [
                       {
-                        "trace": "error_trace",
-                        "errors": [{ "errorData": "data" }],
+                        'trace': 'error_trace',
+                        'errors': [{ 'errorData': 'data' }],
                       },
                     ],
                 }
@@ -385,7 +385,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ReservationDismissionRequest"
+              $ref: '#/components/schemas/ReservationDismissionRequest'
             example: |-
               {
                 "orderId": "4321",
@@ -401,29 +401,29 @@ paths:
                 ]
               }
       responses:
-        "200":
+        '200':
           description: OK Response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ReservationDismissionResponse"
-              example: { "isDismissed": true }
-        "400":
+                $ref: '#/components/schemas/ReservationDismissionResponse'
+              example: { 'isDismissed': true }
+        '400':
           description: Error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
               example:
                 {
-                  "message": "reservation process failed",
-                  "code": 400,
-                  "internalCode": "RESERVATION_DISMISSION_FAILED",
-                  "details":
+                  'message': 'reservation process failed',
+                  'code': 400,
+                  'internalCode': 'RESERVATION_DISMISSION_FAILED',
+                  'details':
                     [
                       {
-                        "trace": "error_trace",
-                        "errors": [{ "errorData": "data" }],
+                        'trace': 'error_trace',
+                        'errors': [{ 'errorData': 'data' }],
                       },
                     ],
                 }
@@ -447,7 +447,7 @@ components:
         deliveryMethods:
           type: array
           items:
-            $ref: "#/components/schemas/DeliveryMethod"
+            $ref: '#/components/schemas/DeliveryMethod'
         pickupStoreCode:
           type: string
         sellerId:
@@ -458,7 +458,7 @@ components:
         products:
           type: array
           items:
-            $ref: "#/components/schemas/ProductRequest"
+            $ref: '#/components/schemas/ProductRequest'
         country:
           type: string
         region:
@@ -479,7 +479,7 @@ components:
         products:
           type: array
           items:
-            $ref: "#/components/schemas/ProductResponse"
+            $ref: '#/components/schemas/ProductResponse'
     ProductResponse:
       type: object
       properties:
@@ -492,7 +492,7 @@ components:
         deliveryMethods:
           type: array
           items:
-            $ref: "#/components/schemas/DeliveryMethodResponse"
+            $ref: '#/components/schemas/DeliveryMethodResponse'
     DeliveryMethodResponse:
       type: object
       properties:
@@ -506,7 +506,7 @@ components:
           type: string
         date:
           type: string
-          format: "full-date"
+          format: 'full-date'
         currency:
           type: string
         price:
@@ -550,7 +550,7 @@ components:
         products:
           type: array
           items:
-            $ref: "#/components/schemas/ReservationProduct"
+            $ref: '#/components/schemas/ReservationProduct'
       required:
         - responseId
         - coordinateId
@@ -569,7 +569,7 @@ components:
         cuds:
           type: array
           items:
-            $ref: "#/components/schemas/ReservationCud"
+            $ref: '#/components/schemas/ReservationCud'
     ReservationErrorDetails:
       properties:
         trace:
@@ -597,8 +597,8 @@ components:
           type: string
         details:
           oneOf:
-            - $ref: "#/components/schemas/ReservationErrorDetails"
-            - $ref: "#/components/schemas/ScheduleErrorDetails"
+            - $ref: '#/components/schemas/ReservationErrorDetails'
+            - $ref: '#/components/schemas/ScheduleErrorDetails'
     PromiseResponse:
       type: object
       properties:
@@ -607,8 +607,8 @@ components:
         matrix:
           type: array
           items:
-            $ref: "#/components/schemas/MatrixElement"
+            $ref: '#/components/schemas/MatrixElement'
         errors:
           type: array
           items:
-            $ref: "#/components/schemas/Error"
+            $ref: '#/components/schemas/Error'

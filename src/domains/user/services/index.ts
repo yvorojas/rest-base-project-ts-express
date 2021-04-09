@@ -1,5 +1,5 @@
-import GetInfoUseCase from '../services/getInfo'
+import GetInfoUseCase from '../services/getInfo';
 
 export default {
-    getInfo: GetInfoUseCase.execute
-}
+  getInfo: GetInfoUseCase.execute,
+};

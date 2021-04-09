@@ -1,7 +1,7 @@
-import GetInfoUseCase from './getInfo'
-import GetAnotherInfoUseCase from './getAnotherInfo'
+import GetInfoUseCase from './getInfo';
+import GetAnotherInfoUseCase from './getAnotherInfo';
 
 export default {
-    getInfo: GetInfoUseCase.execute,
-    getAnotherInfo: GetAnotherInfoUseCase.execute
-}
+  getInfo: GetInfoUseCase.execute,
+  getAnotherInfo: GetAnotherInfoUseCase.execute,
+};

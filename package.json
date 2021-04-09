@@ -7,19 +7,28 @@
     "prepare": "husky install",
     "start": "NODE_ENV=production node dist/src/index.js",
     "compile": "ts-node build.ts && tsc",
+    "docker:build": "docker build -t base-project .",
+    "docker:run": "docker run --rm -it -p 3000:3000 base-project",
     "dev": "NODE_ENV=dev nodemon src/index.ts | pino-pretty",
     "dev:debug": "nodemon --exec 'node -r ts-node/register --inspect-brk' server/index.ts | pino-pretty",
     "lint": "tsc --noEmit && eslint -c .eslintrc.js '{src, test}/*.{js,ts,tsx}' --quiet",
     "lint:fix": "tsc --noEmit && eslint -c .eslintrc.js '{src, test}/*.{js,ts,tsx}' --quiet --fix",
-    "test": "jest"
+    "test": "jest",
+    "test:unit": "npm test -- --testPathPattern=unit\\.*$",
+    "coverage": "npm run test:unit -- --coverage --watchAll=false",
+    "test:integration": "npm test -- --testPathPattern=integration\\.*$",
+    "prettier:format": "prettier --write '**/*.{js,ts,json,yml,yaml}'",
+    "prettier:check": "prettier --check '**/*.{js,ts,json,yml,yaml}'"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-actuator": "^1.4.0",
+    "mongodb-memory-server": "^6.9.6",
     "mongoose": "^5.12.3",
     "pino": "^5.13.6",
     "request": "^2.88.0",
@@ -55,16 +64,24 @@
       "json",
       "ts"
     ],
-    "rootDir": "test",
     "testRegex": ".*\\.test\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "integration/**/*.(t|j)s",
-      "unit/**/*.(t|j)s"
+      "src/**/*.ts",
+      "!src/infrastructure/*.ts",
+      "!src/infrastructure/**/*.ts"
     ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "coverageDirectory": "coverage",
+    "testEnvironment": "node",
+    "coverageThreshold": {
+      "global": {
+        "branches": 4,
+        "functions": 4,
+        "lines": 4,
+        "statements": 4
+      }
+    }
   }
 }
