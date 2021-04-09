@@ -1,4 +1,4 @@
-import express, { Application } from 'express';
+import express from 'express';
 import actuator from 'express-actuator';
 import path from 'path';
 import bodyParser from 'body-parser';
