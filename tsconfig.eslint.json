@@ -1,4 +1,4 @@
 {
-  "include": [".ts", ".test.ts"],
-  "exclude": ["node_modules", ".nyc_output"]
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", ".nyc_output", "build.ts"]
 }

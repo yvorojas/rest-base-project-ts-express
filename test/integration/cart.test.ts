@@ -2,16 +2,13 @@ import server from '../../src';
 import supertest from 'supertest';
 import { connect, closeDatabase } from './mocks/mongo';
 
-describe('Demo integration tests', () => {
+describe('Cart integration tests', () => {
   let request;
 
   beforeAll(async () => {
-    jest.mock(
-      '../../src/infrastructure/repositories/mongoConnector',
-      async () => {
-        await connect();
-      },
-    );
+    jest.mock('../../src/infrastructure/config/database', async () => {
+      await connect();
+    });
     request = supertest(server);
   });
 
@@ -21,8 +18,8 @@ describe('Demo integration tests', () => {
     done();
   });
 
-  it('should get demo info when call to demo controller get demo info method', async () => {
-    const res = await request.get('/api/v1/demo');
+  it('should get cart info when call to cart controller get cart info method', async () => {
+    const res = await request.get('/api/v1/cart');
     expect(res.body).toStrictEqual({
       products: [
         {
@@ -39,8 +36,8 @@ describe('Demo integration tests', () => {
     });
   });
 
-  it('should get another demo info when call to demo controller get another demo info method', async () => {
-    const res = await request.get('/api/v1/demo/another');
+  it('should get another cart info when call to cart controller get another cart info method', async () => {
+    const res = await request.get('/api/v1/cart/another');
     expect(res.body).toStrictEqual({
       products: [
         {
