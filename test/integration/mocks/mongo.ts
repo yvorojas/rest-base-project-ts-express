@@ -15,7 +15,8 @@ const connect = async () => {
 };
 
 const closeDatabase = async () => {
-  await mongoose.connection.dropDatabase();
+  mongoose.connection.readyState !== 0 &&
+    (await mongoose.connection.dropDatabase());
   await mongoose.connection.close();
   await mongod.stop();
 };

@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky install",
     "start": "NODE_ENV=production node dist/src/index.js",
-    "compile": "ts-node build.ts && tsc",
+    "compile": "ts-node build.ts && tsc --p tsconfig-build.json",
     "docker:build": "docker build -t base-project .",
     "docker:run": "docker run --rm -it -p 3000:3000 base-project",
     "dev": "NODE_ENV=dev nodemon src/index.ts | pino-pretty",

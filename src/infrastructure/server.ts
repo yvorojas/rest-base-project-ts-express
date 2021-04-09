@@ -7,11 +7,13 @@ import os from 'os';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import l from './common/logger';
-import connectDB from './config/database';
+import connect from './repositories/mongoConnector';
 
 const app = express();
 
-connectDB();
+JSON.parse(process.env.CONNECT_TO_MONGO)
+  ? connect()
+  : console.log('not connect to DB due env variable');
 
 export default class ExpressServer {
   constructor() {

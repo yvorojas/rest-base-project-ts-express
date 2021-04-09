@@ -1,21 +1,20 @@
-import { ConnectionOptions, connect } from 'mongoose';
+import { ConnectionOptions, connect as connectDB } from 'mongoose';
 
-const connectDB = async () => {
+const connect = async () => {
   try {
-    const mongoURI = 'mongodb://127.0.0.1:27017/bd';
+    const mongoURI = process.env.MONGOURI;
     const options: ConnectionOptions = {
       useNewUrlParser: true,
       useCreateIndex: true,
       useFindAndModify: false,
       useUnifiedTopology: true,
     };
-    await connect(mongoURI, options);
+    await connectDB(mongoURI, options);
     console.log('MongoDB Connected...');
   } catch (err) {
     console.error(err.message);
-    // Exit process with failure
     process.exit(1);
   }
 };
 
-export default connectDB;
+export default connect;
